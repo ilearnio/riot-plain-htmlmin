@@ -8,9 +8,9 @@ A small package that minifies HTML right inside of plain-JS [Riot](http://riotjs
 
 ## Example
 
-Trinspiles a file like this one
+Transpiles a file like this one
 
-```
+```js
 import riot from 'riot'
 
 riot.tag('my-tag', `
@@ -22,7 +22,7 @@ riot.tag('my-tag', `
 
 into
 
-```
+```js
 import riot from 'riot'
 
 riot.tag('my-tag', `<div>HTML ...</div>`, function(opts) {
@@ -31,7 +31,7 @@ riot.tag('my-tag', `<div>HTML ...</div>`, function(opts) {
 ```
 
 ## Usage
-```
+```js
 import fs from 'fs'
 import minify from 'riot-plain-htmlmin'
 
