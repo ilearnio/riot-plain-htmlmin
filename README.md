@@ -8,6 +8,8 @@ A small package that minifies HTML right inside of plain-JS [Riot](http://riotjs
 
 ## Example
 
+Trinspiles a file like this one
+
 ```
 import riot from 'riot'
 
@@ -18,7 +20,7 @@ riot.tag('my-tag', `
 })
 ```
 
-will be transpiled to
+into
 
 ```
 import riot from 'riot'
