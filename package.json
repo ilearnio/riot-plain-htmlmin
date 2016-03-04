@@ -31,7 +31,9 @@
     "type": "git",
     "url": "git+https://github.com/ilearnio/riot-plain-htmlmin.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "riot-compiler": "^2.3.22"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5"
