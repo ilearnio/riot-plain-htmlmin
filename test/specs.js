@@ -4,7 +4,7 @@
 const expect = require('chai').expect
 
 const minify = require('..')
-const locateRiotHTMLString = minify.locateRiotHTMLString
+const locateRiotHTMLString = minify._locateRiotHTMLString
 
 describe('riot-plain-minify', () => {
   it('should locate Riot HTML string', () => {

@@ -4,9 +4,10 @@ const compileHTML = require('riot-compiler').html
 
 function minify (str, options) {
   const loc = locateRiotHTMLString(str)
-  const html = str.substring(loc.start, loc.end)
 
   if (loc) {
+    const html = str.substring(loc.start, loc.end)
+
     str = str.substring(0, loc.start) +
       compileHTML(html, options) +
       str.substr(loc.end)
@@ -74,5 +75,4 @@ function locateRiotHTMLString (str) {
 }
 
 module.exports = minify
-module.exports.locateString = locateString
-module.exports.locateRiotHTMLString = locateRiotHTMLString
+module.exports._locateRiotHTMLString = locateRiotHTMLString
