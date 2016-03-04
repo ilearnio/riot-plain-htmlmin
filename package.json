@@ -1,0 +1,38 @@
+{
+  "name": "riot-plain-htmlmin",
+  "description": "Minifies HTML right inside of plain-JS Riot tags",
+  "version": "0.0.1",
+  "author": {
+    "name": "Nikita Gavrilov",
+    "email": "artnikpro@gmail.com"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run testonly",
+    "testonly": "mocha test/specs.js",
+    "lint": "standard ."
+  },
+  "bugs": {
+    "url": "https://github.com/ilearnio/riot-plain-htmlmin/issues"
+  },
+  "homepage": "https://github.com/ilearnio/riot-plain-htmlmin",
+  "keywords": [
+    "riotjs",
+    "riot",
+    "minify",
+    "htmlmin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilearnio/riot-plain-htmlmin.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
