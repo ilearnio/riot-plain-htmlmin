@@ -31,7 +31,9 @@ into
 ```js
 import riot from 'riot'
 
-riot.tag('my-tag', `<div>HTML ...</div>`, function(opts) {
+riot.tag('my-tag', `<div>HTML ...</div>`
+
+ , function(opts) {
   // JS ...
 })
 ```
