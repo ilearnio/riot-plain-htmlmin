@@ -1,7 +1,7 @@
 {
   "name": "riot-plain-htmlmin",
   "description": "Minifies HTML right inside of plain-JS Riot tags",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Nikita Gavrilov",
     "email": "artnikpro@gmail.com"
