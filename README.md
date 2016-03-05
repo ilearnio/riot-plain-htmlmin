@@ -4,7 +4,11 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-A small package that minifies HTML right inside of plain-JS [Riot](http://riotjs.com) tags.
+A small package that extracts HTML from plain-JS [Riot](http://riotjs.com) tags and passes it through the Riot's HTML compiler.
+
+This gives two benefits:
+ 1. Minifies HTML right inside of plain-JS tags
+ 2. Fixes all of the HTML [limitations](http://riotjs.com/api/#example) when working with `riot.tag()`, since your HTML starts to act like if it's a `.tag` file.
 
 ## Example
 

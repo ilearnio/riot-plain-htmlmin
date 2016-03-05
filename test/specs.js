@@ -64,6 +64,34 @@ describe('riot-plain-minify', () => {
     expect(new_str).to.equal("riot.tag('tag', '<i></i>')")
   })
 
+  it('should quote exressions', () => {
+    const str = "riot.tag('tag', `<a onclick={ foo }></a>`)"
+    const new_str = minify(str, { compact: true })
+
+    expect(new_str).to.equal('riot.tag(\'tag\', `<a onclick="{foo}"></a>`)')
+  })
+
+  it('should add __ prefix to a boolean attribute', () => {
+    const str = "riot.tag('tag', `<a checked={ foo }>`)"
+    const new_str = minify(str, { compact: true })
+
+    expect(new_str).to.equal('riot.tag(\'tag\', `<a __checked="{foo}">`)')
+  })
+
+  it('should add riot- prefix to a src attribute', () => {
+    const str = "riot.tag('tag', `<img src={ foo }>`)"
+    const new_str = minify(str, { compact: true })
+
+    expect(new_str).to.equal('riot.tag(\'tag\', `<img riot-src="{foo}">`)')
+  })
+
+  it('should add riot- prefix to a style attribute', () => {
+    const str = "riot.tag('tag', `<a style=\"foo: { bar }\">`)"
+    const new_str = minify(str, { compact: true })
+
+    expect(new_str).to.equal('riot.tag(\'tag\', `<a riot-style="foo: {bar}">`)')
+  })
+
   // TODO: should support concatenated strings
   // it('should support concatenated strings', () => {
   //   const str = "riot.tag('tag', ' <i></i> ' +\n\" <b></b> \" + ` <a></a> `)"
