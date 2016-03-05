@@ -10,8 +10,8 @@ function minify (str, options) {
     const prepend_str = str.substring(0, loc.start)
 
     // Keep the same line and column of the function. This
-    // might be helpful for some scenarios when needed to keep
-    // stack traces in sync with the source file
+    // might be helpful in some scenarios when needed to
+    // keep stack traces in sync with the source file
     let append_str = str.substr(loc.end)
     const add_lines_num = html.split('\n').length - 1
     if (add_lines_num !== 0) {
