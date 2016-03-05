@@ -4,11 +4,13 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-A small package that extracts HTML from plain-JS [Riot](http://riotjs.com) tags and passes it through the Riot's HTML compiler.
+A small package that extracts HTML from plain-JS [Riot](http://riotjs.com) tags, passes it through the Riot's HTML compiler and returns a new string with the HTML replaced.
 
 This gives two benefits:
  1. Minifies HTML right inside of plain-JS tags
  2. Fixes all of the HTML [limitations](http://riotjs.com/api/#example) when working with `riot.tag()`, since your HTML starts to act like if it's a `.tag` file.
+
+It will also keep the same line and column of the actual JS code (`function (opts) { ... }`) which might be helpful for some scenarios when needed to keep stack traces in sync with the source file.
 
 ## Example
 
@@ -47,7 +49,7 @@ minify(src, { compact: true }) // <- The result
 #### Parameters
 
 Accepts 2 parameters:
- - _src_ – the source of a file
+ - _src_ – the source of an entire file
  - _options_ – RiotJS options object that passes to the compiler
 
 ## How it works

@@ -4,13 +4,32 @@ const compileHTML = require('riot-compiler').html
 
 function minify (str, options) {
   const loc = locateRiotHTMLString(str)
+  const html = str.substring(loc.start, loc.end)
+
+  const prepend_str = str.substring(0, loc.start)
+
+  // Keep the same line and column of the function. This
+  // might be helpful for some scenarios when needed to keep
+  // stack traces in sync with the source file
+  let append_str = str.substr(loc.end)
+  const add_lines_num = html.split('\n').length - 1
+  if (add_lines_num !== 0) {
+    const add_lines = '\n'.repeat(add_lines_num)
+    const reg = /^(['"`][\s\n\r]*)(,[\s\n\r]*.*?\{\n)/m
+
+    append_str = append_str
+      .replace(reg, function (a, b, c) {
+        const html_lines = html.split('\n')
+        const before_fn_lines = b.split('\n')
+        const column = html_lines[html_lines.length - 1].length +
+          before_fn_lines[before_fn_lines.length - 1].length
+
+        return b + add_lines + (' '.repeat(column)) + c
+      })
+  }
 
   if (loc) {
-    const html = str.substring(loc.start, loc.end)
-
-    str = str.substring(0, loc.start) +
-      compileHTML(html, options) +
-      str.substr(loc.end)
+    str = prepend_str + compileHTML(html, options) + append_str
   }
 
   return str

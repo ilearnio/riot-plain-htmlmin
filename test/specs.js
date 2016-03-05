@@ -24,6 +24,20 @@ describe('riot-plain-minify', () => {
     riot.tag('tag', \`
     <div>
       foo
+    </div> <i></i>\`)
+    `
+    const new_str = minify(str, { compact: true })
+
+    expect(new_str).to.equal(`
+    riot.tag('tag', \`<div> foo </div><i></i>\`)
+    `)
+  })
+
+  it('should keep the same line and column of the function', () => {
+    const str = `
+    riot.tag('tag', \`
+    <div>
+      foo
     </div> <i></i>\`, function(opts) {
       var bar = 'baz'
     })
@@ -31,7 +45,8 @@ describe('riot-plain-minify', () => {
     const new_str = minify(str, { compact: true })
 
     expect(new_str).to.equal(`
-    riot.tag('tag', \`<div> foo </div><i></i>\`, function(opts) {
+    riot.tag('tag', \`<div> foo </div><i></i>\`\n\n
+                   , function(opts) {
       var bar = 'baz'
     })
     `)
