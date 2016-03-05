@@ -10,8 +10,7 @@ This gives two benefits:
  1. Minifies HTML right inside of plain-JS tags
  2. Fixes all of the HTML [limitations](http://riotjs.com/api/#example) when working with `riot.tag()`, since your HTML starts to act like if it's a `.tag` file.
 
-
-It will also keep the same line and column of the actual JS code (`function (opts) { ... }`) which might be helpful in some scenarios when needed to keep stack traces in sync with the source file.
+<p>It will also keep the same line and column of the actual JS code (`function (opts) { ... }`) which might be helpful in some scenarios when needed to keep stack traces in sync with the source file.</p>
 
 ## Example
 
