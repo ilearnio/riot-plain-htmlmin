@@ -75,7 +75,7 @@ function locateString (str, str_quote) {
 
 function locateRiotHTMLString (str) {
   const matches = str
-    .match(/^[\s\S]*riot\.tag2?\s*\(\s*['"`]\S+?['"`]\s*,\s*['"`]/m)
+    .match(/^[\s\S]*?riot\.tag2?\s*\(\s*['"`]\S+?['"`]\s*,\s*['"`]/m)
 
   if (matches) {
     const start_index = matches[0].length
